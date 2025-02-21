@@ -14,9 +14,9 @@ router.post("/", async (req, res) => {
   }
 
   // Validate email and phone formats
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(userEmail)) {
     return res.status(400).json({ error: "Invalid email format" });
-  }
+}
   if (!/^\d{10}$/.test(userPhoneNumber)) {
     return res.status(400).json({ error: "Phone number must be 10 digits" });
   }
