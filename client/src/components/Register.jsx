@@ -28,10 +28,11 @@ const Register = () => {
       setError("Phone number must be 10 digits.");
       return false;
     }
-    if (!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(userEmail)) {
-      setError("Invalid email format.");
-      return false;
-    }
+    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+if (!emailRegex.test(userEmail)) {
+  setError("Invalid email format.");
+  return false;
+}
     if (userPassword.length < 6) {
       setError("Password must be at least 6 characters.");
       return false;
